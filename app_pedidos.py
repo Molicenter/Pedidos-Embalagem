@@ -655,6 +655,18 @@ if perfil_navegacao == "Separação e Fechamento":
         df_base["TOTAL GERAL"] = df_base[LOJAS].sum(axis=1)
         df_base["OBS GERAL"] = df_base.apply(concat_obs, axis=1)
 
+        cols_order = ["Fornecedor", "Código", "Descrição"] + LOJAS + ["TOTAL GERAL", "OBS GERAL"]
+        df_exibir = df_base[cols_order]
+
+        # --- BUSCA NA TELA DE SEPARAÇÃO ---
+        termo_busca_sep = st.text_input("🔍 Buscar Produto (por Código ou Nome):", placeholder="Digite aqui para filtrar a lista abaixo...", key="busca_sep")
+        if termo_busca_sep:
+            mask = df_exibir["Descrição"].str.contains(termo_busca_sep, case=False, na=False) | \
+                   df_exibir["Código"].astype(str).str.contains(termo_busca_sep, case=False, na=False)
+            df_exibir = df_exibir[mask]
+            st.caption("⚠️ *Aviso: Salve suas alterações antes de limpar a busca, para não perder as edições atuais.*")
+        # ----------------------------------
+
         col_cfg = {
             "Fornecedor":  st.column_config.TextColumn("Categoria", disabled=True),
             "Código":      st.column_config.NumberColumn("Cód.", width=80, format="%d", disabled=True),
@@ -664,9 +676,6 @@ if perfil_navegacao == "Separação e Fechamento":
         }
         for loja, novo_nome in MAPA_LOJAS.items():
             col_cfg[loja] = st.column_config.NumberColumn(novo_nome, format="%d", min_value=0, step=1)
-
-        cols_order = ["Fornecedor", "Código", "Descrição"] + LOJAS + ["TOTAL GERAL", "OBS GERAL"]
-        df_exibir = df_base[cols_order]
 
         df_editado = st.data_editor(
             df_exibir,
@@ -830,6 +839,15 @@ elif perfil_navegacao == "Visão das Lojas":
     with st.container(border=True):
         st.info("💡 **Dica:** Preencha a **Qtde** e, se necessário, use a coluna **OBS.** para colocar detalhes como tamanhos específicos (Ex: '1 pacote de P e 2 de M').")
 
+        # --- NOVA BARRA DE BUSCA ---
+        termo_busca_loja = st.text_input("🔍 Buscar Produto (por Código ou Nome):", placeholder="Digite aqui para filtrar a lista abaixo...", key="busca_lojas")
+        if termo_busca_loja:
+            mask = df_loja_view["Descrição"].str.contains(termo_busca_loja, case=False, na=False) | \
+                   df_loja_view["Código"].astype(str).str.contains(termo_busca_loja, case=False, na=False)
+            df_loja_view = df_loja_view[mask]
+            st.caption("⚠️ *Aviso: Salve o seu pedido (botão abaixo) antes de limpar ou alterar a busca, para não perder o que foi digitado.*")
+        # ---------------------------
+
         col_cfg_loja = {
             "Fornecedor": st.column_config.TextColumn("Categoria", width=130, disabled=True),
             "Código":     st.column_config.NumberColumn("Cód.", width=80, format="%d", disabled=True),
@@ -863,13 +881,16 @@ elif perfil_navegacao == "Visão das Lojas":
 </div>""", unsafe_allow_html=True)
 
         itens_com_pedido = int((df_editado["Qtde"] > 0).sum())
-        total_itens      = len(df_editado)
+        # Mostra o total de itens originais para não confundir quando tiver busca ativa
+        total_itens      = len(df_loja_view) 
         total_unidades   = int(df_editado["Qtde"].sum())
         pct              = round(itens_com_pedido / total_itens * 100) if total_itens else 0
 
         st.divider()
         m1, m2, m3, col_print, col_btn = st.columns([2.5, 2.2, 1.8, 1.5, 3])
-        with m1: st.metric("Itens preenchidos", f"{itens_com_pedido} / {total_itens}")
+        
+        texto_itens = f"{itens_com_pedido} / {total_itens}" if not termo_busca_loja else f"{itens_com_pedido} / {total_itens} (na busca)"
+        with m1: st.metric("Itens preenchidos", texto_itens)
         with m2: st.metric("Total de unidades", total_unidades)
         with m3: st.metric("Cobertura", f"{pct}%")
 
