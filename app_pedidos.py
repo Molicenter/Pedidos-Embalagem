@@ -39,14 +39,14 @@ st.markdown("""
     --bg-main:        #0d1117;
     --bg-card:        #161b22;
     --bg-sidebar:     #0d1117;
-    --brown-dark:     #3a2610; /* Fundo escuro sutil para headers */
-    --brown-mid:      #8b5a2b; /* Tom médio para botões e gradientes */
-    --brown-accent:   #cd853f; /* Tom caramelo claro para destaque principal */
-    --brown-bright:   #eebb88; /* Bege/Caramelo super claro para textos fortes */
+    --brown-dark:     #3a2610; 
+    --brown-mid:      #8b5a2b; 
+    --brown-accent:   #cd853f; 
+    --brown-bright:   #eebb88; 
     --brown-glow:     rgba(205, 133, 63, .25);
     --text-primary:   #e6edf3;
     --text-muted:     #7d8590;
-    --text-header:    #f5deb3; /* Trigo/Bege para títulos */
+    --text-header:    #f5deb3; 
     --border:         #21262d;
     --border-active:  #cd853f;
     --row-hover:      rgba(205, 133, 63, .08);
@@ -162,7 +162,7 @@ div[data-testid="stVerticalBlockBorderWrapper"]:hover {
 
 /* IMPRESSÃO */
 @media print {
-    @page { size: A4 portrait; margin: 8mm 8mm; }
+    @page { size: A4 landscape; margin: 6mm 6mm; }
 
     .stApp, .main, body, html {
         background-color: #ffffff !important;
@@ -229,39 +229,33 @@ div[data-testid="stVerticalBlockBorderWrapper"]:hover {
     }
     table.print-table tr { break-inside: avoid !important; page-break-inside: avoid !important; }
 
+    /* LOJAS: Ajustado para incluir OBS */
     table.print-loja { font-size: 10px !important; }
     table.print-loja th:nth-child(1), table.print-loja td:nth-child(1) { width: 15% !important; text-align: left !important; }
-    table.print-loja th:nth-child(2), table.print-loja td:nth-child(2) { width: 10% !important; text-align: center !important; }
-    table.print-loja th:nth-child(3), table.print-loja td:nth-child(3) { width: 45% !important; text-align: left !important; }
-    table.print-loja th:nth-child(4), table.print-loja td:nth-child(4) { width: 15% !important; text-align: center !important; }
-    table.print-loja th:nth-child(5), table.print-loja td:nth-child(5) {
-        width: 15% !important; text-align: center !important;
-        font-weight: bold !important; background-color: #eeeeee !important;
-        -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
-    }
+    table.print-loja th:nth-child(2), table.print-loja td:nth-child(2) { width: 8% !important; text-align: center !important; }
+    table.print-loja th:nth-child(3), table.print-loja td:nth-child(3) { width: 35% !important; text-align: left !important; }
+    table.print-loja th:nth-child(4), table.print-loja td:nth-child(4) { width: 10% !important; text-align: center !important; }
+    table.print-loja th:nth-child(5), table.print-loja td:nth-child(5) { width: 12% !important; text-align: center !important; font-weight: bold !important; background-color: #eeeeee !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    table.print-loja th:nth-child(6), table.print-loja td:nth-child(6) { width: 20% !important; text-align: left !important; }
 
+    /* FORNECEDOR / MATRICIAL: Ajustado para incluir OBS GERAL */
     table.print-forn { font-size: 7.5px !important; }
-    table.print-forn th:nth-child(1), table.print-forn td:nth-child(1) { width: 7% !important; text-align: center !important; }
-    table.print-forn th:nth-child(2), table.print-forn td:nth-child(2) { width: 29% !important; text-align: left !important; }
+    table.print-forn th:nth-child(1), table.print-forn td:nth-child(1) { width: 6% !important; text-align: center !important; }
+    table.print-forn th:nth-child(2), table.print-forn td:nth-child(2) { width: 22% !important; text-align: left !important; }
     table.print-forn th:nth-child(n+3):nth-child(-n+10),
-    table.print-forn td:nth-child(n+3):nth-child(-n+10) { width: 6.5% !important; text-align: center !important; }
-    table.print-forn th:nth-child(11), table.print-forn td:nth-child(11) {
-        width: 8% !important; text-align: center !important;
-        font-weight: bold !important; background-color: #eeeeee !important;
-        -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
-    }
+    table.print-forn td:nth-child(n+3):nth-child(-n+10) { width: 5% !important; text-align: center !important; }
+    table.print-forn th:nth-child(11), table.print-forn td:nth-child(11) { width: 6% !important; text-align: center !important; font-weight: bold !important; background-color: #eeeeee !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    table.print-forn th:nth-child(12), table.print-forn td:nth-child(12) { width: 26% !important; text-align: left !important; font-style: italic !important; }
 
-    table.print-sep { font-size: 9px !important; }
-    table.print-sep th:nth-child(1), table.print-sep td:nth-child(1) { width: 11% !important; text-align: left !important; }
-    table.print-sep th:nth-child(2), table.print-sep td:nth-child(2) { width: 7%  !important; text-align: center !important; }
-    table.print-sep th:nth-child(3), table.print-sep td:nth-child(3) { width: 26% !important; text-align: left !important; }
+    /* SEPARAÇÃO: Ajustado para incluir OBS GERAL */
+    table.print-sep { font-size: 8px !important; }
+    table.print-sep th:nth-child(1), table.print-sep td:nth-child(1) { width: 10% !important; text-align: left !important; }
+    table.print-sep th:nth-child(2), table.print-sep td:nth-child(2) { width: 6%  !important; text-align: center !important; }
+    table.print-sep th:nth-child(3), table.print-sep td:nth-child(3) { width: 20% !important; text-align: left !important; }
     table.print-sep th:nth-child(n+4):nth-child(-n+11),
-    table.print-sep td:nth-child(n+4):nth-child(-n+11) { width: 6% !important; text-align: center !important; }
-    table.print-sep th:nth-child(12), table.print-sep td:nth-child(12) {
-        width: 7% !important; text-align: center !important;
-        font-weight: bold !important; background-color: #eeeeee !important;
-        -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
-    }
+    table.print-sep td:nth-child(n+4):nth-child(-n+11) { width: 4.5% !important; text-align: center !important; }
+    table.print-sep th:nth-child(12), table.print-sep td:nth-child(12) { width: 6% !important; text-align: center !important; font-weight: bold !important; background-color: #eeeeee !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    table.print-sep th:nth-child(13), table.print-sep td:nth-child(13) { width: 22% !important; text-align: left !important; font-style: italic !important; }
 }
 
 @media screen {
@@ -277,39 +271,30 @@ LOJAS = ["Loja 01", "Loja 02", "Loja 03", "Loja 04", "Loja 05", "Loja 06", "Loja
 MAPA_LOJAS = {l: l for l in LOJAS}
 
 produtos_iniciais = [
-    # Pet Cristal
     {"Fornecedor": "Pet Cristal", "Código": 565491, "Descrição Oficial": "Emb Garrafa Plastica Mac Pet 500ml Cx 180un", "Nome Personalizado": ""},
     {"Fornecedor": "Pet Cristal", "Código": 565482, "Descrição Oficial": "Emb Garrafa Plastica Mac Pet 1l Cx 82un", "Nome Personalizado": ""},
     {"Fornecedor": "Pet Cristal", "Código": 565507, "Descrição Oficial": "Emb Tampa Garrafa Plastica Mac Pet", "Nome Personalizado": ""},
-
-    # Embalagens Isopor
     {"Fornecedor": "Embalagens Isopor", "Código": 274827, "Descrição Oficial": "Emb Band 11se Branca C/400 150x150 Ou Fr01", "Nome Personalizado": ""},
     {"Fornecedor": "Embalagens Isopor", "Código": 73929, "Descrição Oficial": "Emb Band 2se Rs Brc C/400 14,5x21 ( No.2 Brc )", "Nome Personalizado": ""},
     {"Fornecedor": "Embalagens Isopor", "Código": 74445, "Descrição Oficial": "Emb Band 4se Rasa Brc C/400 18x24 ( No.4 Brc)", "Nome Personalizado": ""},
     {"Fornecedor": "Embalagens Isopor", "Código": 93828, "Descrição Oficial": "Emb Band M-01 Rasa Brc C/400 150x150", "Nome Personalizado": ""},
     {"Fornecedor": "Embalagens Isopor", "Código": 45186, "Descrição Oficial": "Emb Band M03 Rosa C/400 14x21", "Nome Personalizado": ""},
     {"Fornecedor": "Embalagens Isopor", "Código": 50449, "Descrição Oficial": "Emb Band M04 Rosa C/400 18x23", "Nome Personalizado": ""},
-
-    # Objeto P/ Produção
     {"Fornecedor": "Objeto P/ Produção", "Código": 83720, "Descrição Oficial": "Uso Serra Fita Mundial 1,80", "Nome Personalizado": ""},
     {"Fornecedor": "Objeto P/ Produção", "Código": 66815, "Descrição Oficial": "Uso Serra Fita Mundial 2,82", "Nome Personalizado": ""},
     {"Fornecedor": "Objeto P/ Produção", "Código": 245287, "Descrição Oficial": "Uso Serra Fita Mundial 3,10", "Nome Personalizado": ""},
-
-    # Cartaz
     {"Fornecedor": "Cartaz", "Código": 465784, "Descrição Oficial": "Uso Cartaz A2 42x59,4 C/500 Boa Ventura", "Nome Personalizado": ""},
     {"Fornecedor": "Cartaz", "Código": 472696, "Descrição Oficial": "Uso Cartaz A3 29,7x42 C/500 Boa Ventura Prom", "Nome Personalizado": ""},
     {"Fornecedor": "Cartaz", "Código": 465809, "Descrição Oficial": "Uso Cartaz A4 21x29,7 C/500 Boa Ventura", "Nome Personalizado": ""},
     {"Fornecedor": "Cartaz", "Código": 291374, "Descrição Oficial": "Uso Cartaz Gl 150 46x65", "Nome Personalizado": ""},
     {"Fornecedor": "Cartaz", "Código": 641834, "Descrição Oficial": "Uso Cartaz Moli Clube 17,5x10,5 C/500 Boa Ventura", "Nome Personalizado": ""},
-
-    # Dona Rita
     {"Fornecedor": "Dona Rita", "Código": 637910, "Descrição Oficial": "Emb D32rb Torta Preta Tampa Baixa 700g C/100", "Nome Personalizado": ""},
     {"Fornecedor": "Dona Rita", "Código": 637929, "Descrição Oficial": "Emb D32r Torta Preta Tampa Media 750g C/100", "Nome Personalizado": ""},
 ]
 
 
 # ─────────────────────────────────────────────
-# FUNÇÃO DE ESTILIZAÇÃO DE EXCEL COM CORES
+# FUNÇÃO DE ESTILIZAÇÃO DE EXCEL COM CORES E OBS
 # ─────────────────────────────────────────────
 def gerar_excel_estilizado(df, sheet_name="Resumo"):
     buffer = io.BytesIO()
@@ -318,8 +303,8 @@ def gerar_excel_estilizado(df, sheet_name="Resumo"):
         worksheet = writer.sheets[sheet_name]
 
         # Estilos com as cores do App (Marrom / Caramelo)
-        header_fill = PatternFill(start_color='8B5A2B', end_color='8B5A2B', fill_type='solid') # Marrom médio
-        alt_row_fill = PatternFill(start_color='FAF5F0', end_color='FAF5F0', fill_type='solid') # Bege bem claro para linhas alternadas
+        header_fill = PatternFill(start_color='8B5A2B', end_color='8B5A2B', fill_type='solid') 
+        alt_row_fill = PatternFill(start_color='FAF5F0', end_color='FAF5F0', fill_type='solid') 
         header_font = Font(color='FFFFFF', bold=True)
         border_style = Border(
             left=Side(style='thin', color='CCCCCC'),
@@ -332,16 +317,13 @@ def gerar_excel_estilizado(df, sheet_name="Resumo"):
             for cell in row:
                 cell.border = border_style
                 if row_idx == 0:
-                    # Formata o Cabeçalho
                     cell.fill = header_fill
                     cell.font = header_font
                     cell.alignment = Alignment(horizontal='center', vertical='center')
                 else:
-                    # Fundo alternado para as linhas
                     if row_idx % 2 == 0:
                         cell.fill = alt_row_fill
                     
-                    # Alinhamento dinâmico: Centraliza números e deixa textos à esquerda
                     if isinstance(cell.value, (int, float)):
                         cell.alignment = Alignment(horizontal='center', vertical='center')
                     else:
@@ -351,13 +333,20 @@ def gerar_excel_estilizado(df, sheet_name="Resumo"):
         for col in worksheet.columns:
             max_length = 0
             col_letter = col[0].column_letter
+            header_val = str(col[0].value)
+            
             for cell in col:
                 try:
                     if len(str(cell.value)) > max_length:
                         max_length = len(str(cell.value))
                 except:
                     pass
-            worksheet.column_dimensions[col_letter].width = max_length + 2
+            
+            # Limita e ajusta largura especial para coluna de Observações
+            if "OBS" in header_val:
+                worksheet.column_dimensions[col_letter].width = min(max_length + 2, 60)
+            else:
+                worksheet.column_dimensions[col_letter].width = max_length + 2
 
         # 🖨️ CONFIGURAÇÃO AUTOMÁTICA DE IMPRESSÃO
         worksheet.sheet_properties.pageSetUpPr.fitToPage = True
@@ -385,6 +374,16 @@ def parse_bool(x):
     if isinstance(x, (int, float)): return bool(x) and not pd.isna(x)
     return str(x).strip().upper() in ['TRUE', 'VERDADEIRO', '1', 'V', 'SIM', 'YES', 'T', 'X']
 
+# Função para concatenar observações na visão matricial
+def concat_obs(row):
+    obs_list = []
+    for l in LOJAS:
+        val = str(row.get(f"{l}_OBS", "")).strip()
+        if val and val.lower() != "nan":
+            sigla = l.replace("Loja ", "L")
+            obs_list.append(f"{sigla}: {val}")
+    return " | ".join(obs_list)
+
 @st.cache_data(ttl=15)
 def carregar_catalogo_embalagem():
     try:
@@ -392,10 +391,6 @@ def carregar_catalogo_embalagem():
     except ValueError as e:
         if "Spreadsheet must be specified" in str(e):
             st.error("🚨 **Erro Crítico:** URL da Planilha não especificada nas configurações do Streamlit Cloud (Secrets).")
-            st.info("""No painel do Streamlit, vá em **App settings > Secrets** e adicione o bloco:
-[connections.gsheets]
-spreadsheet = "URL_DA_SUA_PLANILHA"
-""")
             st.stop()
         else:
             raise e
@@ -455,8 +450,7 @@ def carregar_pedidos():
         df_pedidos = conn.read(worksheet=WS_PEDIDOS, ttl=0)
     except ValueError as e:
         if "Spreadsheet must be specified" in str(e):
-            st.error("🚨 **Erro Crítico:** URL da Planilha não especificada nas configurações do Streamlit Cloud (Secrets).")
-            st.info("No painel do Streamlit, vá em **App settings > Secrets** e adicione o bloco:\n\n```toml\n[connections.gsheets]\nspreadsheet = \"URL_DA_SUA_PLANILHA\"\n```")
+            st.error("🚨 **Erro Crítico:** URL da Planilha não especificada nas configurações.")
             st.stop()
         else:
             raise e
@@ -470,6 +464,7 @@ def carregar_pedidos():
         df_init = df_cat[["Fornecedor", "Código", "Descrição"]].copy()
         for loja in LOJAS:
             df_init[loja] = 0
+            df_init[f"{loja}_OBS"] = ""
         if not df_init.empty:
             conn.update(worksheet=WS_PEDIDOS, data=df_init)
         return df_init
@@ -481,8 +476,18 @@ def carregar_pedidos():
         df_pedidos["Código"] = pd.to_numeric(df_pedidos["Código"], errors='coerce').fillna(0).astype(int)
 
     for loja in LOJAS:
+        # Garante que a coluna de quantidade existe
         if loja in df_pedidos.columns:
             df_pedidos[loja] = pd.to_numeric(df_pedidos[loja], errors='coerce').fillna(0).astype(int)
+        else:
+            df_pedidos[loja] = 0
+            
+        # Garante que a coluna de OBS existe
+        obs_col = f"{loja}_OBS"
+        if obs_col in df_pedidos.columns:
+            df_pedidos[obs_col] = df_pedidos[obs_col].fillna("").astype(str)
+        else:
+            df_pedidos[obs_col] = ""
 
     return df_pedidos
 
@@ -605,7 +610,7 @@ with st.sidebar:
 # ─────────────────────────────────────────────
 @st.dialog("🚨 Confirmação Necessária")
 def modal_zerar_pedidos():
-    st.markdown("Tem certeza que deseja **zerar todos os pedidos** de todas as lojas?")
+    st.markdown("Tem certeza que deseja **zerar todos os pedidos e observações** de todas as lojas?")
     st.markdown("⚠️ *Esta ação irá zerar as quantidades diretamente no Google Sheets.*")
 
     st.write("<br>", unsafe_allow_html=True)
@@ -620,6 +625,9 @@ def modal_zerar_pedidos():
             for loja in LOJAS:
                 if loja in df_main.columns:
                     df_main[loja] = 0
+                obs_col = f"{loja}_OBS"
+                if obs_col in df_main.columns:
+                    df_main[obs_col] = ""
             salvar_pedidos(df_main)
             st.rerun()
 
@@ -645,17 +653,19 @@ if perfil_navegacao == "Separação e Fechamento":
             st.stop()
 
         df_base["TOTAL GERAL"] = df_base[LOJAS].sum(axis=1)
+        df_base["OBS GERAL"] = df_base.apply(concat_obs, axis=1)
 
         col_cfg = {
             "Fornecedor":  st.column_config.TextColumn("Categoria", disabled=True),
             "Código":      st.column_config.NumberColumn("Cód.", width=80, format="%d", disabled=True),
             "Descrição":   st.column_config.TextColumn("Produto", disabled=True),
-            "TOTAL GERAL": st.column_config.NumberColumn("TOTAL ▶️", width=90, format="%d", disabled=True),
+            "TOTAL GERAL": st.column_config.NumberColumn("TOTAL ▶️", width=80, format="%d", disabled=True),
+            "OBS GERAL":   st.column_config.TextColumn("OBS GERAL", width=250, disabled=True),
         }
         for loja, novo_nome in MAPA_LOJAS.items():
             col_cfg[loja] = st.column_config.NumberColumn(novo_nome, format="%d", min_value=0, step=1)
 
-        cols_order = ["Fornecedor", "Código", "Descrição"] + LOJAS + ["TOTAL GERAL"]
+        cols_order = ["Fornecedor", "Código", "Descrição"] + LOJAS + ["TOTAL GERAL", "OBS GERAL"]
         df_exibir = df_base[cols_order]
 
         df_editado = st.data_editor(
@@ -682,7 +692,13 @@ if perfil_navegacao == "Separação e Fechamento":
 
         with col_salvar:
             if st.button("💾 Salvar Alterações", type="primary", use_container_width=True):
-                df_to_save = df_editado.drop(columns=["TOTAL GERAL"])
+                # Recarrega a base pra garantir que as OBS não se percam, atualiza só as quantidades alteradas
+                df_to_save = carregar_pedidos()
+                for _, row_edit in df_editado.iterrows():
+                    mask = (df_to_save["Fornecedor"] == row_edit["Fornecedor"]) & (df_to_save["Código"] == row_edit["Código"])
+                    for loja in LOJAS:
+                        df_to_save.loc[mask, loja] = row_edit[loja]
+                
                 salvar_pedidos(df_to_save)
                 st.success("✅ Pedidos salvos na nuvem com sucesso!")
                 st.rerun()
@@ -738,7 +754,7 @@ elif perfil_navegacao == "Visão das Lojas":
                 <span style="font-size:22px">📦</span>
                 <div>
                     <div class="topbar-title">{loja_selecionada} — Embalagens <span class="erp-badge">🟢 Conectado ao ERP</span></div>
-                    <div class="topbar-sub">Preencha a quantidade de cada produto</div>
+                    <div class="topbar-sub">Preencha a quantidade e as observações (se necessário)</div>
                 </div>
             </div>
         </div>
@@ -757,18 +773,26 @@ elif perfil_navegacao == "Visão das Lojas":
         st.stop()
 
     df_all = carregar_pedidos()
+    
+    # Prepara as colunas que a loja vai ver e editar
     df_loja_view = pd.merge(
         df_cat_loja[["Fornecedor", "Código", "Descrição"]],
-        df_all[["Fornecedor", "Código", loja_selecionada]],
+        df_all[["Fornecedor", "Código", loja_selecionada, f"{loja_selecionada}_OBS"]],
         on=["Fornecedor", "Código"],
         how="left"
     )
     df_loja_view[loja_selecionada] = df_loja_view[loja_selecionada].fillna(0).astype(int)
-    df_loja_view = df_loja_view.rename(columns={loja_selecionada: "Qtde"})
+    df_loja_view[f"{loja_selecionada}_OBS"] = df_loja_view[f"{loja_selecionada}_OBS"].fillna("").astype(str)
+    
+    # Renomeando as colunas para o Data Editor
+    df_loja_view = df_loja_view.rename(columns={
+        loja_selecionada: "Qtde",
+        f"{loja_selecionada}_OBS": "OBS"
+    })
 
+    # Puxar Estoque do Banco (Simulado via TRY)
     try:
         conn_pg = st.connection("banco_erp", type="sql")
-
         mapa_banco_erp = {
             "Loja 01": "001", "Loja 02": "002", "Loja 03": "003",
             "Loja 04": "004", "Loja 05": "005", "Loja 06": "006",
@@ -780,16 +804,13 @@ elif perfil_navegacao == "Visão das Lojas":
             SELECT cadprodemp.cade_codempresa,
                    cadprodemp.cade_codigo,
                    cadprod.cadp_descricao,
-                   cadprodemp.cade_estoque1::numeric(18,2) AS estoque,
-                   cadprodemp.cade_estoque6::numeric(18,2) AS estoqueemb
+                   cadprodemp.cade_estoque1::numeric(18,2) AS estoque
             FROM cadprodemp
             JOIN cadprod ON cadprodemp.cade_codigo = cadprod.cadp_codigo
-            FULL JOIN mvad ON cadprodemp.cade_codmva::text = mvad.mvad_codmva::text
             WHERE cadprodemp.cade_ativo::text = 'S'::text 
               AND cadprodemp.cade_codempresa::text = '{cod_empresa_banco}'
             ORDER BY cadprodemp.cade_codempresa, cadprodemp.cade_codigo
         """
-
         df_erp = conn_pg.query(query_erp, ttl=300)
 
         if not df_erp.empty:
@@ -799,25 +820,23 @@ elif perfil_navegacao == "Visão das Lojas":
             df_loja_view["Estoque"] = 0
 
     except Exception as e:
-        if "No database configured" in str(e) or "missing" in str(e).lower():
-             st.error("⚠️ Aviso: As credenciais do banco_erp também precisam estar nos Secrets do Streamlit para puxar o estoque.")
-        else:
-             st.error(f"⚠️ Erro ao puxar dados do ERP PostgreSQL: {e}")
         df_loja_view["Estoque"] = 0
 
     df_loja_view["Estoque"] = df_loja_view["Estoque"].fillna(0).astype(int)
-    df_loja_view["Qtde"] = df_loja_view["Qtde"].fillna(0).astype(int)
-    df_loja_view = df_loja_view[["Fornecedor", "Código", "Descrição", "Estoque", "Qtde"]]
+    
+    # Reordenando para o usuário
+    df_loja_view = df_loja_view[["Fornecedor", "Código", "Descrição", "Estoque", "Qtde", "OBS"]]
 
     with st.container(border=True):
-        st.info("💡 **Dica:** O **Estoque** foi preenchido automaticamente com base no sistema ERP. Você pode preencher apenas a **Qtde** do pedido.")
+        st.info("💡 **Dica:** Preencha a **Qtde** e, se necessário, use a coluna **OBS.** para colocar detalhes como tamanhos específicos (Ex: '1 pacote de P e 2 de M').")
 
         col_cfg_loja = {
-            "Fornecedor": st.column_config.TextColumn("Categoria", width=150, disabled=True),
+            "Fornecedor": st.column_config.TextColumn("Categoria", width=130, disabled=True),
             "Código":     st.column_config.NumberColumn("Cód.", width=80, format="%d", disabled=True),
             "Descrição":  st.column_config.TextColumn("Produto", width=250, disabled=True),
             "Estoque":    st.column_config.NumberColumn("📦 Estoque", width=100, format="%d", disabled=True),
-            "Qtde":       st.column_config.NumberColumn("🛒 Qtde", width=120, min_value=0, step=1),
+            "Qtde":       st.column_config.NumberColumn("🛒 Qtde", width=100, min_value=0, step=1),
+            "OBS":        st.column_config.TextColumn("📝 OBS.", width=200),
         }
 
         with st.container():
@@ -869,12 +888,18 @@ elif perfil_navegacao == "Visão das Lojas":
                         (df_main["Fornecedor"] == row["Fornecedor"]) &
                         (df_main["Código"] == row["Código"])
                     )
+                    
                     if mask.any():
                         df_main.loc[mask, loja_selecionada] = row["Qtde"]
+                        df_main.loc[mask, f"{loja_selecionada}_OBS"] = row["OBS"]
                     else:
                         nova_linha = {"Fornecedor": row["Fornecedor"], "Código": row["Código"], "Descrição": row["Descrição"]}
-                        for l in LOJAS: nova_linha[l] = 0
+                        for l in LOJAS: 
+                            nova_linha[l] = 0
+                            nova_linha[f"{l}_OBS"] = ""
+                            
                         nova_linha[loja_selecionada] = row["Qtde"]
+                        nova_linha[f"{loja_selecionada}_OBS"] = row["OBS"]
                         df_main = pd.concat([df_main, pd.DataFrame([nova_linha])], ignore_index=True)
 
                 salvar_pedidos(df_main)
@@ -911,23 +936,27 @@ elif perfil_navegacao == "Visão por Fornecedor (Resumo)":
 
             df_forn = df_all[df_all["Fornecedor"] == fornecedor].copy()
             colunas_presentes = LOJAS
-            df_forn = df_forn[["Código", "Descrição"] + colunas_presentes].copy()
-            df_forn["TOTAL"] = df_forn[colunas_presentes].sum(axis=1)
+            
+            # Adiciona a regra do OBS GERAL para a visão da matriz
+            df_forn["OBS GERAL"] = df_forn.apply(concat_obs, axis=1)
+            
+            df_forn_view = df_forn[["Código", "Descrição"] + colunas_presentes + ["OBS GERAL"]].copy()
+            df_forn_view["TOTAL"] = df_forn_view[colunas_presentes].sum(axis=1)
 
             lojas_renomeadas = {l: MAPA_LOJAS[l] for l in colunas_presentes}
-            df_forn = df_forn.rename(columns=lojas_renomeadas)
-
+            df_forn_view = df_forn_view.rename(columns=lojas_renomeadas)
             lojas_cols_renomeadas = [MAPA_LOJAS[l] for l in colunas_presentes]
 
             col_cfg_forn = {
                 "Código":    st.column_config.NumberColumn("Cód.", width=80, format="%d", disabled=True),
                 "Descrição": st.column_config.TextColumn("Produto", disabled=False),
-                "TOTAL":     st.column_config.NumberColumn("TOTAL", format="%d", disabled=True),
+                "TOTAL":     st.column_config.NumberColumn("TOTAL", width=80, format="%d", disabled=True),
+                "OBS GERAL": st.column_config.TextColumn("OBS GERAL", width=250, disabled=True)
             }
             for c in lojas_cols_renomeadas:
                 col_cfg_forn[c] = st.column_config.NumberColumn(c, format="%d", disabled=False, min_value=0)
 
-            altura = (len(df_forn) * 35) + 42
+            altura = (len(df_forn_view) * 35) + 42
 
             with cols[j]:
                 with st.container(border=True):
@@ -940,9 +969,9 @@ elif perfil_navegacao == "Visão por Fornecedor (Resumo)":
                     )
                     st.markdown('</div>', unsafe_allow_html=True)
 
-                    cols_order_forn = ["Código", "Descrição"] + lojas_cols_renomeadas + ["TOTAL"]
+                    cols_order_forn = ["Código", "Descrição"] + lojas_cols_renomeadas + ["TOTAL", "OBS GERAL"]
                     df_forn_edit = st.data_editor(
-                        df_forn[cols_order_forn],
+                        df_forn_view[cols_order_forn],
                         hide_index=True,
                         use_container_width=True,
                         column_config=col_cfg_forn,
@@ -996,8 +1025,12 @@ elif perfil_navegacao == "Visão por Fornecedor (Resumo)":
             df_export = pd.concat([df_export, df_f], ignore_index=True)
             
     if not df_export.empty:
-        df_export = df_export[["Código", "Descrição", "Fornecedor"] + LOJAS]
+        df_export["OBS GERAL"] = df_export.apply(concat_obs, axis=1)
+        df_export = df_export[["Código", "Descrição", "Fornecedor"] + LOJAS + ["OBS GERAL"]]
         df_export["TOTAL GERAL"] = df_export[LOJAS].sum(axis=1)
+        # Reordena para TOTAL GERAL ficar antes de OBS
+        cols_final_export = ["Código", "Descrição", "Fornecedor"] + LOJAS + ["TOTAL GERAL", "OBS GERAL"]
+        df_export = df_export[cols_final_export]
         df_export = df_export.rename(columns=MAPA_LOJAS)
 
     with col_csv:
@@ -1016,7 +1049,7 @@ elif perfil_navegacao == "Visão por Fornecedor (Resumo)":
                 "<script>"
                 "var s=document.createElement('style');"
                 "s.id='__forn_port__';"
-                "s.innerHTML='@media print{@page{size:A4 portrait!important;margin:8mm 8mm!important;}}';"
+                "s.innerHTML='@media print{@page{size:A4 landscape!important;margin:6mm 6mm!important;}}';"
                 "window.parent.document.head.appendChild(s);"
                 "window.parent.print();"
                 "setTimeout(function(){"
@@ -1040,7 +1073,7 @@ elif perfil_navegacao == "Catálogo de Produtos":
         <span style="font-size: 26px; margin-right: 12px;">🗂️</span>
         <div style="display: inline-block; vertical-align: top;">
             <div style="font-size: 20px; font-weight: 700; color: var(--text-header);">Catálogo de Embalagens</div>
-            <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Atualize nomes direto do ERP ou crie apelidos personalizados. Os apelidos terão prioridade em todo o sistema.</div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Atualize nomes direto do ERP ou crie apelidos personalizados. Os apelidos terão prioridade em todo o sistema. <br><b>Dica: Para adicionar todos os produtos rapidamente, cole-os direto na sua planilha do Google Sheets.</b></div>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -1069,7 +1102,10 @@ elif perfil_navegacao == "Catálogo de Produtos":
             "Embalagens Isopor",
             "Objeto P/ Produção",
             "Cartaz",
-            "Dona Rita"
+            "Dona Rita",
+            "Diversos",
+            "Sacos Plásticos",
+            "Bobinas"
         ]
 
         col_cfg_cat = {
