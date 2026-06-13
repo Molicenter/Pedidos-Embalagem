@@ -84,13 +84,13 @@ section[data-testid="stSidebar"] .stRadio label { font-size: 14px; }
     color: var(--brown-bright) !important;
     transform: translateY(-1px) !important;
 }
-.stTextInput input, .stSelectbox > div > div {
+.stTextInput input, .stSelectbox > div > div, .stTextArea textarea {
     background-color: var(--bg-card) !important;
     border: 1px solid var(--border) !important;
     border-radius: 8px !important;
     color: var(--text-primary) !important;
 }
-.stTextInput input:focus, .stSelectbox > div > div:focus-within {
+.stTextInput input:focus, .stSelectbox > div > div:focus-within, .stTextArea textarea:focus {
     border-color: var(--brown-accent) !important;
     box-shadow: 0 0 0 3px var(--brown-glow) !important;
 }
@@ -229,33 +229,30 @@ div[data-testid="stVerticalBlockBorderWrapper"]:hover {
     }
     table.print-table tr { break-inside: avoid !important; page-break-inside: avoid !important; }
 
-    /* LOJAS: Ajustado para incluir OBS */
+    /* LOJAS */
     table.print-loja { font-size: 10px !important; }
-    table.print-loja th:nth-child(1), table.print-loja td:nth-child(1) { width: 15% !important; text-align: left !important; }
-    table.print-loja th:nth-child(2), table.print-loja td:nth-child(2) { width: 8% !important; text-align: center !important; }
-    table.print-loja th:nth-child(3), table.print-loja td:nth-child(3) { width: 35% !important; text-align: left !important; }
+    table.print-loja th:nth-child(1), table.print-loja td:nth-child(1) { width: 20% !important; text-align: left !important; }
+    table.print-loja th:nth-child(2), table.print-loja td:nth-child(2) { width: 10% !important; text-align: center !important; }
+    table.print-loja th:nth-child(3), table.print-loja td:nth-child(3) { width: 45% !important; text-align: left !important; }
     table.print-loja th:nth-child(4), table.print-loja td:nth-child(4) { width: 10% !important; text-align: center !important; }
-    table.print-loja th:nth-child(5), table.print-loja td:nth-child(5) { width: 12% !important; text-align: center !important; font-weight: bold !important; background-color: #eeeeee !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-    table.print-loja th:nth-child(6), table.print-loja td:nth-child(6) { width: 20% !important; text-align: left !important; }
+    table.print-loja th:nth-child(5), table.print-loja td:nth-child(5) { width: 15% !important; text-align: center !important; font-weight: bold !important; background-color: #eeeeee !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 
-    /* FORNECEDOR / MATRICIAL: Ajustado para incluir OBS GERAL */
+    /* FORNECEDOR / MATRICIAL */
     table.print-forn { font-size: 7.5px !important; }
     table.print-forn th:nth-child(1), table.print-forn td:nth-child(1) { width: 6% !important; text-align: center !important; }
-    table.print-forn th:nth-child(2), table.print-forn td:nth-child(2) { width: 22% !important; text-align: left !important; }
+    table.print-forn th:nth-child(2), table.print-forn td:nth-child(2) { width: 32% !important; text-align: left !important; }
     table.print-forn th:nth-child(n+3):nth-child(-n+10),
-    table.print-forn td:nth-child(n+3):nth-child(-n+10) { width: 5% !important; text-align: center !important; }
-    table.print-forn th:nth-child(11), table.print-forn td:nth-child(11) { width: 6% !important; text-align: center !important; font-weight: bold !important; background-color: #eeeeee !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-    table.print-forn th:nth-child(12), table.print-forn td:nth-child(12) { width: 26% !important; text-align: left !important; font-style: italic !important; }
+    table.print-forn td:nth-child(n+3):nth-child(-n+10) { width: 6% !important; text-align: center !important; }
+    table.print-forn th:nth-child(11), table.print-forn td:nth-child(11) { width: 8% !important; text-align: center !important; font-weight: bold !important; background-color: #eeeeee !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 
-    /* SEPARAÇÃO: Ajustado para incluir OBS GERAL */
+    /* SEPARAÇÃO */
     table.print-sep { font-size: 8px !important; }
-    table.print-sep th:nth-child(1), table.print-sep td:nth-child(1) { width: 10% !important; text-align: left !important; }
-    table.print-sep th:nth-child(2), table.print-sep td:nth-child(2) { width: 6%  !important; text-align: center !important; }
-    table.print-sep th:nth-child(3), table.print-sep td:nth-child(3) { width: 20% !important; text-align: left !important; }
+    table.print-sep th:nth-child(1), table.print-sep td:nth-child(1) { width: 14% !important; text-align: left !important; }
+    table.print-sep th:nth-child(2), table.print-sep td:nth-child(2) { width: 8%  !important; text-align: center !important; }
+    table.print-sep th:nth-child(3), table.print-sep td:nth-child(3) { width: 30% !important; text-align: left !important; }
     table.print-sep th:nth-child(n+4):nth-child(-n+11),
-    table.print-sep td:nth-child(n+4):nth-child(-n+11) { width: 4.5% !important; text-align: center !important; }
-    table.print-sep th:nth-child(12), table.print-sep td:nth-child(12) { width: 6% !important; text-align: center !important; font-weight: bold !important; background-color: #eeeeee !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-    table.print-sep th:nth-child(13), table.print-sep td:nth-child(13) { width: 22% !important; text-align: left !important; font-style: italic !important; }
+    table.print-sep td:nth-child(n+4):nth-child(-n+11) { width: 5% !important; text-align: center !important; }
+    table.print-sep th:nth-child(12), table.print-sep td:nth-child(12) { width: 8% !important; text-align: center !important; font-weight: bold !important; background-color: #eeeeee !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 }
 
 @media screen {
@@ -296,13 +293,13 @@ produtos_iniciais = [
 # ─────────────────────────────────────────────
 # FUNÇÃO DE ESTILIZAÇÃO DE EXCEL COM CORES E OBS
 # ─────────────────────────────────────────────
-def gerar_excel_estilizado(df, sheet_name="Resumo"):
+def gerar_excel_estilizado(df, sheet_name="Resumo", df_obs=None):
     buffer = io.BytesIO()
     with pd.ExcelWriter(buffer, engine='openpyxl') as writer:
         df.to_excel(writer, index=False, sheet_name=sheet_name)
         worksheet = writer.sheets[sheet_name]
 
-        # Estilos com as cores do App (Marrom / Caramelo)
+        # Estilos com as cores do App
         header_fill = PatternFill(start_color='8B5A2B', end_color='8B5A2B', fill_type='solid') 
         alt_row_fill = PatternFill(start_color='FAF5F0', end_color='FAF5F0', fill_type='solid') 
         header_font = Font(color='FFFFFF', bold=True)
@@ -323,30 +320,43 @@ def gerar_excel_estilizado(df, sheet_name="Resumo"):
                 else:
                     if row_idx % 2 == 0:
                         cell.fill = alt_row_fill
-                    
                     if isinstance(cell.value, (int, float)):
                         cell.alignment = Alignment(horizontal='center', vertical='center')
                     else:
                         cell.alignment = Alignment(horizontal='left', vertical='center')
 
-        # Autoajuste de largura das colunas
+        # Autoajuste de largura
         for col in worksheet.columns:
             max_length = 0
             col_letter = col[0].column_letter
-            header_val = str(col[0].value)
-            
             for cell in col:
                 try:
                     if len(str(cell.value)) > max_length:
                         max_length = len(str(cell.value))
                 except:
                     pass
+            worksheet.column_dimensions[col_letter].width = max_length + 2
+
+        # Inserir Observações no Final da Planilha se houver
+        if df_obs is not None and not df_obs.empty:
+            start_row = worksheet.max_row + 3
             
-            # Limita e ajusta largura especial para coluna de Observações
-            if "OBS" in header_val:
-                worksheet.column_dimensions[col_letter].width = min(max_length + 2, 60)
-            else:
-                worksheet.column_dimensions[col_letter].width = max_length + 2
+            cell_title = worksheet.cell(row=start_row, column=1, value="OBSERVAÇÕES GERAIS DAS LOJAS")
+            cell_title.font = Font(bold=True, color="8B5A2B")
+            
+            start_row += 1
+            c1 = worksheet.cell(row=start_row, column=1, value="Loja")
+            c2 = worksheet.cell(row=start_row, column=2, value="Observação")
+            c1.fill = header_fill; c1.font = header_font; c1.border = border_style
+            c2.fill = header_fill; c2.font = header_font; c2.border = border_style
+            c1.alignment = Alignment(horizontal='center'); c2.alignment = Alignment(horizontal='center')
+            
+            for idx, row in enumerate(df_obs.itertuples()):
+                r = start_row + 1 + idx
+                cloja = worksheet.cell(row=r, column=1, value=row.Loja)
+                cobs = worksheet.cell(row=r, column=2, value=row.Observacao)
+                cloja.border = border_style; cobs.border = border_style
+                cloja.alignment = Alignment(horizontal='center', vertical='center')
 
         # 🖨️ CONFIGURAÇÃO AUTOMÁTICA DE IMPRESSÃO
         worksheet.sheet_properties.pageSetUpPr.fitToPage = True
@@ -368,21 +378,34 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 
 WS_PRODUTOS = "Embalagem_Produtos"
 WS_PEDIDOS  = "Embalagem_Pecas"
+WS_OBS      = "Embalagem_Obs"
 
 def parse_bool(x):
     if isinstance(x, bool): return x
     if isinstance(x, (int, float)): return bool(x) and not pd.isna(x)
     return str(x).strip().upper() in ['TRUE', 'VERDADEIRO', '1', 'V', 'SIM', 'YES', 'T', 'X']
 
-# Função para concatenar observações na visão matricial
-def concat_obs(row):
-    obs_list = []
-    for l in LOJAS:
-        val = str(row.get(f"{l}_OBS", "")).strip()
-        if val and val.lower() != "nan":
-            sigla = l.replace("Loja ", "L")
-            obs_list.append(f"{sigla}: {val}")
-    return " | ".join(obs_list)
+@st.cache_data(ttl=15)
+def carregar_obs():
+    try:
+        df_obs = conn.read(worksheet=WS_OBS, ttl=0)
+    except Exception:
+        df_obs = pd.DataFrame(columns=["Loja", "Observacao"])
+
+    if df_obs.empty or "Loja" not in df_obs.columns:
+        df_obs = pd.DataFrame({"Loja": LOJAS, "Observacao": [""] * len(LOJAS)})
+        conn.update(worksheet=WS_OBS, data=df_obs)
+        
+    for loja in LOJAS:
+        if loja not in df_obs["Loja"].values:
+            nova_obs = pd.DataFrame([{"Loja": loja, "Observacao": ""}])
+            df_obs = pd.concat([df_obs, nova_obs], ignore_index=True)
+            
+    return df_obs
+
+def salvar_obs(df_obs_to_save):
+    conn.update(worksheet=WS_OBS, data=df_obs_to_save)
+    st.cache_data.clear()
 
 @st.cache_data(ttl=15)
 def carregar_catalogo_embalagem():
@@ -464,7 +487,6 @@ def carregar_pedidos():
         df_init = df_cat[["Fornecedor", "Código", "Descrição"]].copy()
         for loja in LOJAS:
             df_init[loja] = 0
-            df_init[f"{loja}_OBS"] = ""
         if not df_init.empty:
             conn.update(worksheet=WS_PEDIDOS, data=df_init)
         return df_init
@@ -476,18 +498,10 @@ def carregar_pedidos():
         df_pedidos["Código"] = pd.to_numeric(df_pedidos["Código"], errors='coerce').fillna(0).astype(int)
 
     for loja in LOJAS:
-        # Garante que a coluna de quantidade existe
         if loja in df_pedidos.columns:
             df_pedidos[loja] = pd.to_numeric(df_pedidos[loja], errors='coerce').fillna(0).astype(int)
         else:
             df_pedidos[loja] = 0
-            
-        # Garante que a coluna de OBS existe
-        obs_col = f"{loja}_OBS"
-        if obs_col in df_pedidos.columns:
-            df_pedidos[obs_col] = df_pedidos[obs_col].fillna("").astype(str)
-        else:
-            df_pedidos[obs_col] = ""
 
     return df_pedidos
 
@@ -625,10 +639,13 @@ def modal_zerar_pedidos():
             for loja in LOJAS:
                 if loja in df_main.columns:
                     df_main[loja] = 0
-                obs_col = f"{loja}_OBS"
-                if obs_col in df_main.columns:
-                    df_main[obs_col] = ""
             salvar_pedidos(df_main)
+            
+            # Zera Observações
+            df_obs = carregar_obs()
+            df_obs["Observacao"] = ""
+            salvar_obs(df_obs)
+            
             st.rerun()
 
 # ─────────────────────────────────────────────
@@ -653,9 +670,8 @@ if perfil_navegacao == "Separação e Fechamento":
             st.stop()
 
         df_base["TOTAL GERAL"] = df_base[LOJAS].sum(axis=1)
-        df_base["OBS GERAL"] = df_base.apply(concat_obs, axis=1)
 
-        cols_order = ["Fornecedor", "Código", "Descrição"] + LOJAS + ["TOTAL GERAL", "OBS GERAL"]
+        cols_order = ["Fornecedor", "Código", "Descrição"] + LOJAS + ["TOTAL GERAL"]
         df_exibir = df_base[cols_order]
 
         # --- BUSCA NA TELA DE SEPARAÇÃO ---
@@ -667,12 +683,14 @@ if perfil_navegacao == "Separação e Fechamento":
             st.caption("⚠️ *Aviso: Salve suas alterações antes de limpar a busca, para não perder as edições atuais.*")
         # ----------------------------------
 
+        # Cálculo Dinâmico de Altura
+        altura_dinamica = min(600, max(100, int(len(df_exibir) * 35.5) + 42))
+
         col_cfg = {
             "Fornecedor":  st.column_config.TextColumn("Categoria", disabled=True),
             "Código":      st.column_config.NumberColumn("Cód.", width=80, format="%d", disabled=True),
             "Descrição":   st.column_config.TextColumn("Produto", disabled=True),
             "TOTAL GERAL": st.column_config.NumberColumn("TOTAL ▶️", width=80, format="%d", disabled=True),
-            "OBS GERAL":   st.column_config.TextColumn("OBS GERAL", width=250, disabled=True),
         }
         for loja, novo_nome in MAPA_LOJAS.items():
             col_cfg[loja] = st.column_config.NumberColumn(novo_nome, format="%d", min_value=0, step=1)
@@ -681,7 +699,7 @@ if perfil_navegacao == "Separação e Fechamento":
             df_exibir,
             hide_index=True,
             use_container_width=True,
-            height=600,
+            height=altura_dinamica,
             column_config=col_cfg,
             key=f"sep_editor_{st.session_state['reset_counter_embalagem']}"
         )
@@ -701,7 +719,6 @@ if perfil_navegacao == "Separação e Fechamento":
 
         with col_salvar:
             if st.button("💾 Salvar Alterações", type="primary", use_container_width=True):
-                # Recarrega a base pra garantir que as OBS não se percam, atualiza só as quantidades alteradas
                 df_to_save = carregar_pedidos()
                 for _, row_edit in df_editado.iterrows():
                     mask = (df_to_save["Fornecedor"] == row_edit["Fornecedor"]) & (df_to_save["Código"] == row_edit["Código"])
@@ -712,6 +729,9 @@ if perfil_navegacao == "Separação e Fechamento":
                 st.success("✅ Pedidos salvos na nuvem com sucesso!")
                 st.rerun()
 
+        df_obs_print = carregar_obs()
+        df_obs_filtrado = df_obs_print[df_obs_print["Observacao"].str.strip() != ""]
+
         with col_csv:
             df_csv = df_editado.copy().rename(columns=MAPA_LOJAS)
             csv = df_csv.to_csv(index=False).encode("utf-8")
@@ -719,7 +739,7 @@ if perfil_navegacao == "Separação e Fechamento":
 
         with col_excel:
             df_exp = df_editado.copy().rename(columns=MAPA_LOJAS)
-            excel_data = gerar_excel_estilizado(df_exp, "Separação Embalagens")
+            excel_data = gerar_excel_estilizado(df_exp, "Separação Embalagens", df_obs=df_obs_filtrado)
             st.download_button("⬇️ Excel", data=excel_data, file_name="separacao_embalagens.xlsx",
                                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                                use_container_width=True)
@@ -744,6 +764,14 @@ if perfil_navegacao == "Separação e Fechamento":
         with col_zerar:
             if st.button("🚨 Zerar Todos os Pedidos", use_container_width=True, key="btn_zerar_sep_emb"):
                 modal_zerar_pedidos()
+                
+        # --- TABELA DE OBSERVAÇÕES GERAIS ---
+        st.write("<br>", unsafe_allow_html=True)
+        st.markdown("### 📝 Observações das Lojas")
+        if not df_obs_filtrado.empty:
+            st.dataframe(df_obs_filtrado, hide_index=True, use_container_width=True)
+        else:
+            st.info("Nenhuma observação registrada nesta semana.")
 
 # ─────────────────────────────────────────────
 # ROTA 2 — VISÃO DAS LOJAS
@@ -763,7 +791,7 @@ elif perfil_navegacao == "Visão das Lojas":
                 <span style="font-size:22px">📦</span>
                 <div>
                     <div class="topbar-title">{loja_selecionada} — Embalagens <span class="erp-badge">🟢 Conectado ao ERP</span></div>
-                    <div class="topbar-sub">Preencha a quantidade e as observações (se necessário)</div>
+                    <div class="topbar-sub">Preencha a quantidade dos produtos e use o campo final para observações gerais.</div>
                 </div>
             </div>
         </div>
@@ -786,18 +814,14 @@ elif perfil_navegacao == "Visão das Lojas":
     # Prepara as colunas que a loja vai ver e editar
     df_loja_view = pd.merge(
         df_cat_loja[["Fornecedor", "Código", "Descrição"]],
-        df_all[["Fornecedor", "Código", loja_selecionada, f"{loja_selecionada}_OBS"]],
+        df_all[["Fornecedor", "Código", loja_selecionada]],
         on=["Fornecedor", "Código"],
         how="left"
     )
     df_loja_view[loja_selecionada] = df_loja_view[loja_selecionada].fillna(0).astype(int)
-    df_loja_view[f"{loja_selecionada}_OBS"] = df_loja_view[f"{loja_selecionada}_OBS"].fillna("").astype(str)
     
-    # Renomeando as colunas para o Data Editor
-    df_loja_view = df_loja_view.rename(columns={
-        loja_selecionada: "Qtde",
-        f"{loja_selecionada}_OBS": "OBS"
-    })
+    # Renomeando a coluna de quantidade
+    df_loja_view = df_loja_view.rename(columns={loja_selecionada: "Qtde"})
 
     # Puxar Estoque do Banco (Simulado via TRY)
     try:
@@ -834,27 +858,27 @@ elif perfil_navegacao == "Visão das Lojas":
     df_loja_view["Estoque"] = df_loja_view["Estoque"].fillna(0).astype(int)
     
     # Reordenando para o usuário
-    df_loja_view = df_loja_view[["Fornecedor", "Código", "Descrição", "Estoque", "Qtde", "OBS"]]
+    df_loja_view = df_loja_view[["Fornecedor", "Código", "Descrição", "Estoque", "Qtde"]]
 
     with st.container(border=True):
-        st.info("💡 **Dica:** Preencha a **Qtde** e, se necessário, use a coluna **OBS.** para colocar detalhes como tamanhos específicos (Ex: '1 pacote de P e 2 de M').")
-
-        # --- NOVA BARRA DE BUSCA ---
+        # --- BARRA DE BUSCA ---
         termo_busca_loja = st.text_input("🔍 Buscar Produto (por Código ou Nome):", placeholder="Digite aqui para filtrar a lista abaixo...", key="busca_lojas")
         if termo_busca_loja:
             mask = df_loja_view["Descrição"].str.contains(termo_busca_loja, case=False, na=False) | \
                    df_loja_view["Código"].astype(str).str.contains(termo_busca_loja, case=False, na=False)
             df_loja_view = df_loja_view[mask]
-            st.caption("⚠️ *Aviso: Salve o seu pedido (botão abaixo) antes de limpar ou alterar a busca, para não perder o que foi digitado.*")
+            st.caption("⚠️ *Aviso: Salve o seu pedido antes de limpar ou alterar a busca, para não perder o que foi digitado.*")
         # ---------------------------
+
+        # Cálculo Dinâmico de Altura
+        altura_dinamica = min(600, max(100, int(len(df_loja_view) * 35.5) + 42))
 
         col_cfg_loja = {
             "Fornecedor": st.column_config.TextColumn("Categoria", width=130, disabled=True),
             "Código":     st.column_config.NumberColumn("Cód.", width=80, format="%d", disabled=True),
-            "Descrição":  st.column_config.TextColumn("Produto", width=250, disabled=True),
+            "Descrição":  st.column_config.TextColumn("Produto", width=300, disabled=True),
             "Estoque":    st.column_config.NumberColumn("📦 Estoque", width=100, format="%d", disabled=True),
-            "Qtde":       st.column_config.NumberColumn("🛒 Qtde", width=100, min_value=0, step=1),
-            "OBS":        st.column_config.TextColumn("📝 OBS.", width=200),
+            "Qtde":       st.column_config.NumberColumn("🛒 Qtde", width=120, min_value=0, step=1),
         }
 
         with st.container():
@@ -863,9 +887,18 @@ elif perfil_navegacao == "Visão das Lojas":
                 column_config=col_cfg_loja,
                 hide_index=True,
                 use_container_width=True,
-                height=520,
+                height=altura_dinamica,
                 key=f"loja_embalagem_{st.session_state['reset_counter_embalagem']}"
             )
+            
+        # --- CAMPO ÚNICO DE OBSERVAÇÃO ---
+        df_obs_atual = carregar_obs()
+        obs_existente = df_obs_atual.loc[df_obs_atual["Loja"] == loja_selecionada, "Observacao"].values
+        obs_texto_inicial = obs_existente[0] if len(obs_existente) > 0 else ""
+        
+        st.write("<br>", unsafe_allow_html=True)
+        nova_obs = st.text_area("📝 Observação Geral da Loja", value=obs_texto_inicial, height=80, placeholder="Caso necessite, digite alguma observação geral para esse pedido (ex: Grampos, Clipes, Sacolas extras, etc.)")
+        # ---------------------------------
 
         df_imprimir = df_editado.copy()
         df_imprimir = df_imprimir.rename(columns={"Estoque": "Est.", "Qtde": "Ped."})
@@ -878,10 +911,11 @@ elif perfil_navegacao == "Visão das Lojas":
 <div class="print-container">
 {html_table_loja}
 </div>
+<br>
+<b>OBSERVAÇÃO GERAL:</b> {nova_obs}
 </div>""", unsafe_allow_html=True)
 
         itens_com_pedido = int((df_editado["Qtde"] > 0).sum())
-        # Mostra o total de itens originais para não confundir quando tiver busca ativa
         total_itens      = len(df_loja_view) 
         total_unidades   = int(df_editado["Qtde"].sum())
         pct              = round(itens_com_pedido / total_itens * 100) if total_itens else 0
@@ -901,29 +935,30 @@ elif perfil_navegacao == "Visão das Lojas":
 
         with col_btn:
             st.write("<br>", unsafe_allow_html=True)
-            if st.button("💾 Salvar Pedido da Semana", type="primary", use_container_width=True):
+            if st.button("💾 Salvar Pedido e OBS", type="primary", use_container_width=True):
+                # Salva Peças
                 df_main = carregar_pedidos()
-
                 for _, row in df_editado.iterrows():
-                    mask = (
-                        (df_main["Fornecedor"] == row["Fornecedor"]) &
-                        (df_main["Código"] == row["Código"])
-                    )
-                    
+                    mask = (df_main["Fornecedor"] == row["Fornecedor"]) & (df_main["Código"] == row["Código"])
                     if mask.any():
                         df_main.loc[mask, loja_selecionada] = row["Qtde"]
-                        df_main.loc[mask, f"{loja_selecionada}_OBS"] = row["OBS"]
                     else:
                         nova_linha = {"Fornecedor": row["Fornecedor"], "Código": row["Código"], "Descrição": row["Descrição"]}
                         for l in LOJAS: 
                             nova_linha[l] = 0
-                            nova_linha[f"{l}_OBS"] = ""
-                            
                         nova_linha[loja_selecionada] = row["Qtde"]
-                        nova_linha[f"{loja_selecionada}_OBS"] = row["OBS"]
                         df_main = pd.concat([df_main, pd.DataFrame([nova_linha])], ignore_index=True)
-
                 salvar_pedidos(df_main)
+                
+                # Salva OBS Geral
+                df_obs_save = carregar_obs()
+                mask_obs = df_obs_save["Loja"] == loja_selecionada
+                if mask_obs.any():
+                    df_obs_save.loc[mask_obs, "Observacao"] = nova_obs
+                else:
+                    df_obs_save = pd.concat([df_obs_save, pd.DataFrame([{"Loja": loja_selecionada, "Observacao": nova_obs}])], ignore_index=True)
+                salvar_obs(df_obs_save)
+                
                 st.success(f"✅ Pedido da {loja_selecionada} enviado para a nuvem com sucesso!")
 
 # ─────────────────────────────────────────────
@@ -958,10 +993,7 @@ elif perfil_navegacao == "Visão por Fornecedor (Resumo)":
             df_forn = df_all[df_all["Fornecedor"] == fornecedor].copy()
             colunas_presentes = LOJAS
             
-            # Adiciona a regra do OBS GERAL para a visão da matriz
-            df_forn["OBS GERAL"] = df_forn.apply(concat_obs, axis=1)
-            
-            df_forn_view = df_forn[["Código", "Descrição"] + colunas_presentes + ["OBS GERAL"]].copy()
+            df_forn_view = df_forn[["Código", "Descrição"] + colunas_presentes].copy()
             df_forn_view["TOTAL"] = df_forn_view[colunas_presentes].sum(axis=1)
 
             lojas_renomeadas = {l: MAPA_LOJAS[l] for l in colunas_presentes}
@@ -972,12 +1004,11 @@ elif perfil_navegacao == "Visão por Fornecedor (Resumo)":
                 "Código":    st.column_config.NumberColumn("Cód.", width=80, format="%d", disabled=True),
                 "Descrição": st.column_config.TextColumn("Produto", disabled=False),
                 "TOTAL":     st.column_config.NumberColumn("TOTAL", width=80, format="%d", disabled=True),
-                "OBS GERAL": st.column_config.TextColumn("OBS GERAL", width=250, disabled=True)
             }
             for c in lojas_cols_renomeadas:
                 col_cfg_forn[c] = st.column_config.NumberColumn(c, format="%d", disabled=False, min_value=0)
 
-            altura = (len(df_forn_view) * 35) + 42
+            altura = min(600, max(100, int(len(df_forn_view) * 35.5) + 42))
 
             with cols[j]:
                 with st.container(border=True):
@@ -990,7 +1021,7 @@ elif perfil_navegacao == "Visão por Fornecedor (Resumo)":
                     )
                     st.markdown('</div>', unsafe_allow_html=True)
 
-                    cols_order_forn = ["Código", "Descrição"] + lojas_cols_renomeadas + ["TOTAL", "OBS GERAL"]
+                    cols_order_forn = ["Código", "Descrição"] + lojas_cols_renomeadas + ["TOTAL"]
                     df_forn_edit = st.data_editor(
                         df_forn_view[cols_order_forn],
                         hide_index=True,
@@ -1038,6 +1069,9 @@ elif perfil_navegacao == "Visão por Fornecedor (Resumo)":
     # ─────────────────────────────────────────────
     col_csv, col_excel, col_space, col_print, col_zerar = st.columns([1.5, 1.5, 2.0, 2.5, 2.5])
     
+    df_obs_print = carregar_obs()
+    df_obs_filtrado = df_obs_print[df_obs_print["Observacao"].str.strip() != ""]
+    
     # Unifica as informações para que tanto CSV quanto Excel usem os mesmos dados
     df_export = pd.DataFrame()
     for forn in nomes_forn:
@@ -1046,11 +1080,9 @@ elif perfil_navegacao == "Visão por Fornecedor (Resumo)":
             df_export = pd.concat([df_export, df_f], ignore_index=True)
             
     if not df_export.empty:
-        df_export["OBS GERAL"] = df_export.apply(concat_obs, axis=1)
-        df_export = df_export[["Código", "Descrição", "Fornecedor"] + LOJAS + ["OBS GERAL"]]
+        df_export = df_export[["Código", "Descrição", "Fornecedor"] + LOJAS]
         df_export["TOTAL GERAL"] = df_export[LOJAS].sum(axis=1)
-        # Reordena para TOTAL GERAL ficar antes de OBS
-        cols_final_export = ["Código", "Descrição", "Fornecedor"] + LOJAS + ["TOTAL GERAL", "OBS GERAL"]
+        cols_final_export = ["Código", "Descrição", "Fornecedor"] + LOJAS + ["TOTAL GERAL"]
         df_export = df_export[cols_final_export]
         df_export = df_export.rename(columns=MAPA_LOJAS)
 
@@ -1061,7 +1093,7 @@ elif perfil_navegacao == "Visão por Fornecedor (Resumo)":
 
     with col_excel:
         if not df_export.empty:
-            excel_data = gerar_excel_estilizado(df_export, "Visão Categorias")
+            excel_data = gerar_excel_estilizado(df_export, "Visão Categorias", df_obs=df_obs_filtrado)
             st.download_button("⬇️ Exportar Excel", data=excel_data, file_name="visao_categoria_embalagens.xlsx", mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", use_container_width=True)
 
     with col_print:
@@ -1084,6 +1116,14 @@ elif perfil_navegacao == "Visão por Fornecedor (Resumo)":
     with col_zerar:
         if st.button("🚨 Zerar Todos os Pedidos", use_container_width=True, key="btn_zerar_forn_emb"):
             modal_zerar_pedidos()
+            
+    # --- TABELA DE OBSERVAÇÕES GERAIS ---
+    st.write("<br>", unsafe_allow_html=True)
+    st.markdown("### 📝 Observações das Lojas")
+    if not df_obs_filtrado.empty:
+        st.dataframe(df_obs_filtrado, hide_index=True, use_container_width=True)
+    else:
+        st.info("Nenhuma observação registrada nesta semana.")
 
 # ─────────────────────────────────────────────
 # ROTA 4 — CATÁLOGO DE PRODUTOS
@@ -1115,6 +1155,16 @@ elif perfil_navegacao == "Catálogo de Produtos":
 
     ordem_colunas = ["Fornecedor", "Código", "Descrição Oficial", "Nome Personalizado"] + LOJAS
     df_editor_input = df_editor_input[ordem_colunas]
+    
+    # Busca
+    termo_busca_cat = st.text_input("🔍 Buscar Produto:", placeholder="Filtrar por código, descrição ou categoria...", key="busca_cat")
+    if termo_busca_cat:
+        mask = df_editor_input["Descrição Oficial"].str.contains(termo_busca_cat, case=False, na=False) | \
+               df_editor_input["Código"].astype(str).str.contains(termo_busca_cat, case=False, na=False) | \
+               df_editor_input["Fornecedor"].str.contains(termo_busca_cat, case=False, na=False)
+        df_editor_input = df_editor_input[mask]
+        
+    altura_dinamica_cat = min(600, max(100, int(len(df_editor_input) * 35.5) + 42))
 
     with st.container(border=True):
 
@@ -1142,7 +1192,7 @@ elif perfil_navegacao == "Catálogo de Produtos":
             df_editor_input,
             use_container_width=True,
             hide_index=True,
-            height=600,
+            height=altura_dinamica_cat,
             num_rows="dynamic",
             column_config=col_cfg_cat,
             key=f"editor_catalogo_embalagem_{st.session_state['reset_counter_embalagem']}"
@@ -1153,7 +1203,19 @@ elif perfil_navegacao == "Catálogo de Produtos":
 
         with col_atualizar:
             if st.button("💾 Salvar Catálogo", type="primary", use_container_width=True):
-                salvar_catalogo(edited_cat)
+                df_to_save = carregar_catalogo_embalagem().drop(columns=["Descrição"], errors="ignore")
+                
+                # Mescla a edição baseada no código
+                for _, row in edited_cat.iterrows():
+                    mask = (df_to_save["Código"] == row["Código"]) & (df_to_save["Fornecedor"] == row["Fornecedor"])
+                    if mask.any():
+                        for c in df_to_save.columns:
+                            if c in row:
+                                df_to_save.loc[mask, c] = row[c]
+                    else:
+                        df_to_save = pd.concat([df_to_save, pd.DataFrame([row])], ignore_index=True)
+                        
+                salvar_catalogo(df_to_save)
                 st.session_state['reset_counter_embalagem'] += 1
                 st.success("✅ Catálogo atualizado com sucesso!")
                 st.rerun()
@@ -1176,7 +1238,13 @@ elif perfil_navegacao == "Catálogo de Produtos":
                         mask = edited_cat["Código"] == row["cadp_codigo"]
                         edited_cat.loc[mask, "Descrição Oficial"] = row["cadp_descricao"]
 
-                    salvar_catalogo(edited_cat)
+                    df_to_save = carregar_catalogo_embalagem().drop(columns=["Descrição"], errors="ignore")
+                    for _, row in edited_cat.iterrows():
+                        mask = (df_to_save["Código"] == row["Código"]) & (df_to_save["Fornecedor"] == row["Fornecedor"])
+                        if mask.any():
+                            df_to_save.loc[mask, "Descrição Oficial"] = row["Descrição Oficial"]
+                            
+                    salvar_catalogo(df_to_save)
                     st.success("✅ Nomes Oficiais sincronizados com sucesso!")
                     st.rerun()
                 except Exception as e:
