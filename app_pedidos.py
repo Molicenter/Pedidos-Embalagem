@@ -164,20 +164,13 @@ div[data-testid="stVerticalBlockBorderWrapper"]:hover {
 @media print {
     @page { size: A4 landscape; margin: 5mm; }
 
-    .stApp, .main, body, html {
+    /* RESET AGRESSIVO DE MARGENS E PADDINGS DO STREAMLIT */
+    html, body, .stApp, #root, [data-testid="stAppViewContainer"], [data-testid="stMainBlockContainer"], .main, .block-container {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
         background-color: #ffffff !important;
         background-image: none !important;
         color: #000000 !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-    
-    /* Remove os espaços gigantes no topo do Streamlit */
-    div[class^="block-container"], .block-container {
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-        margin-top: 0 !important;
-        max-width: 100% !important;
     }
 
     header, [data-testid="stSidebar"], [data-testid="stHeader"] { display: none !important; }
@@ -251,7 +244,7 @@ div[data-testid="stVerticalBlockBorderWrapper"]:hover {
     table.print-loja th:nth-child(6), table.print-loja td:nth-child(6) { width: 20% !important; text-align: left !important; }
 
     /* FORNECEDOR / MATRICIAL (AJUSTE DE FONTE MAIOR) */
-    table.print-forn { font-size: 9.5px !important; } /* Aumentado para melhor leitura */
+    table.print-forn { font-size: 9.5px !important; } 
     table.print-forn th:nth-child(1), table.print-forn td:nth-child(1) { width: 5% !important; text-align: center !important; }
     table.print-forn th:nth-child(2), table.print-forn td:nth-child(2) { width: 23% !important; text-align: left !important; }
     table.print-forn th:nth-child(n+3):nth-child(-n+10),
@@ -807,7 +800,7 @@ if perfil_navegacao == "Separação e Fechamento":
                     "<script>"
                     "var s=document.createElement('style');"
                     "s.id='__sep_land__';"
-                    "s.innerHTML='@media print{@page{size:A4 landscape!important;margin:5mm 5mm!important;} div[class^=\"block-container\"]{padding-top:0!important;}}';"
+                    "s.innerHTML='@media print{@page{size:A4 landscape!important;margin:5mm!important;} html,body,.stApp,#root,[data-testid=\"stAppViewContainer\"],[data-testid=\"stMainBlockContainer\"],.main,.block-container{padding-top:0!important;margin-top:0!important;}}';"
                     "window.parent.document.head.appendChild(s);"
                     "window.parent.print();"
                     "setTimeout(function(){"
@@ -880,7 +873,7 @@ elif perfil_navegacao == "Visão das Lojas":
     # Renomeando a coluna de quantidade
     df_loja_view = df_loja_view.rename(columns={loja_selecionada: "Qtde"})
 
-    # Puxar Estoque do Banco (Simulado via TRY)
+    # Puxar Estoque do Banco (Com Ajuste para Estoque6 conforme Solicitado)
     try:
         conn_pg = st.connection("banco_erp", type="sql")
         mapa_banco_erp = {
@@ -894,7 +887,7 @@ elif perfil_navegacao == "Visão das Lojas":
             SELECT cadprodemp.cade_codempresa,
                    cadprodemp.cade_codigo,
                    cadprod.cadp_descricao,
-                   cadprodemp.cade_estoque1::numeric(18,2) AS estoque
+                   cadprodemp.cade_estoque6::numeric(18,2) AS estoque6
             FROM cadprodemp
             JOIN cadprod ON cadprodemp.cade_codigo = cadprod.cadp_codigo
             WHERE cadprodemp.cade_ativo::text = 'S'::text 
@@ -904,12 +897,16 @@ elif perfil_navegacao == "Visão das Lojas":
         df_erp = conn_pg.query(query_erp, ttl=300)
 
         if not df_erp.empty:
-            df_erp = df_erp.rename(columns={"cade_codigo": "Código", "estoque": "Estoque"})
+            df_erp = df_erp.rename(columns={"cade_codigo": "Código", "estoque6": "Estoque"})
             df_loja_view = pd.merge(df_loja_view, df_erp[["Código", "Estoque"]], on="Código", how="left")
         else:
             df_loja_view["Estoque"] = 0
 
     except Exception as e:
+        if "No database configured" in str(e) or "missing" in str(e).lower():
+             st.error("⚠️ Aviso: As credenciais do banco_erp também precisam estar nos Secrets do Streamlit para puxar o estoque.")
+        else:
+             st.error(f"⚠️ Erro ao puxar dados do ERP PostgreSQL: {e}")
         df_loja_view["Estoque"] = 0
 
     df_loja_view["Estoque"] = df_loja_view["Estoque"].fillna(0).astype(int)
@@ -989,7 +986,17 @@ elif perfil_navegacao == "Visão das Lojas":
         with col_print:
             st.write("<br>", unsafe_allow_html=True)
             if st.button("🖨️ Imprimir", use_container_width=True):
-                components.html("<script>window.parent.print();</script>", height=0)
+                components.html(
+                    "<script>"
+                    "var s=document.createElement('style');"
+                    "s.id='__loja_print__';"
+                    "s.innerHTML='@media print{@page{size:A4 landscape!important;margin:5mm!important;} html,body,.stApp,#root,[data-testid=\"stAppViewContainer\"],[data-testid=\"stMainBlockContainer\"],.main,.block-container{padding-top:0!important;margin-top:0!important;}}';"
+                    "window.parent.document.head.appendChild(s);"
+                    "window.parent.print();"
+                    "setTimeout(function(){var e=window.parent.document.getElementById('__loja_print__');if(e)e.remove();},3000);"
+                    "</script>", 
+                    height=0
+                )
 
         with col_btn:
             st.write("<br>", unsafe_allow_html=True)
@@ -1160,7 +1167,7 @@ elif perfil_navegacao == "Visão por Fornecedor (Resumo)":
                 "<script>"
                 "var s=document.createElement('style');"
                 "s.id='__forn_port__';"
-                "s.innerHTML='@media print{@page{size:A4 landscape!important;margin:5mm 5mm!important;} div[class^=\"block-container\"]{padding-top:0!important;}}';"
+                "s.innerHTML='@media print{@page{size:A4 landscape!important;margin:5mm!important;} html,body,.stApp,#root,[data-testid=\"stAppViewContainer\"],[data-testid=\"stMainBlockContainer\"],.main,.block-container{padding-top:0!important;margin-top:0!important;}}';"
                 "window.parent.document.head.appendChild(s);"
                 "window.parent.print();"
                 "setTimeout(function(){"
